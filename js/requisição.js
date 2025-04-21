@@ -1,6 +1,6 @@
 const url = 'https://potterhead-api.vercel.app/api/movies'
 const filmes = document.querySelector('.card-container')
-const titulosOriginais = Array.from(document.querySelectorAll('.titulo')).map(t => t.textContent);
+const titulosOriginais = Array.from(document.querySelectorAll('.titulo')).map(t => t.textContent)
 
 // aplicação da API
 function testeApi(filme, i){
@@ -14,7 +14,7 @@ function testeApi(filme, i){
         <p>
         <button class="estrela">&#9733;</button></p>
         <img src="${filme.poster}" alt="">
-        <h2>${titulosOriginais[i]}</h2>
+        <h2>${filme.serial} - ${titulosOriginais[i]}</h2>
         </div>
         </li>
         `
@@ -41,6 +41,7 @@ function salvar(filmeData){
       favoritos.push(filme) 
     }
     localStorage.setItem('favoritos', JSON.stringify(favoritos))
+    
   })
 })}
 //tentativa frustrada de tentar aplicar o status de "favorito"

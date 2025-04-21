@@ -51,16 +51,16 @@
         </div>
     </header>
  
-    <div class="card"></div>
+    <div class="card-container"></div>
         
     <script>
     
     document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.card');
+    const container = document.querySelector('.card-container');
     const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
     if (favoritos.length === 0) {
-      container.innerHTML = "<p>Você ainda não adicionou nenhum filme aos favoritos.</p>"
+      container.innerHTML = '<p id="p">Você não tem nenhum filme favorito</p>'
       return;
     }
 
@@ -68,13 +68,14 @@
       return `
         <div class="card">
           <img src="${filme.poster}" alt="${filme.titulo}">
-          <h2>${filme.titulo}</h2>
+          <h2>${filme.serial} - ${filme.title}</h2>
         </div>
       `;
     }).join('');
 
     container.innerHTML = cards;
   });
+  
     </script>
     <script src="/js/script.js"></script>
 </body>
