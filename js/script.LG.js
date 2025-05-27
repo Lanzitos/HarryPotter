@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
-    const rememberMeCheckbox = document.querySelector('.remember-me input[type="checkbox"]');
+    const rememberMeCheckbox = document.querySelector('.remember-me');
     const emailInput = document.getElementById('Email');
     const passwordInput = document.getElementById('Senha');
     const storageKey = 'rememberMeData';
