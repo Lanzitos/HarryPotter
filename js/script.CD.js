@@ -23,9 +23,9 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
   
   class MobileNavbar {
     constructor(mobileMenu, navList, navLinks) {
-      this.mobileMenu = document.querySelector(mobileMenu);
-      this.navList = document.querySelector(navList);
-      this.navLinks = document.querySelectorAll(navLinks);
+      this.mobileMenu = document.querySelector('#mobileMenu');
+      this.navList = document.querySelector('#mobile_nav_list');
+      this.navLinks = document.querySelectorAll('a.nav-item');
       this.activeClass = "active";
   
       this.handleClick = this.handleClick.bind(this);
