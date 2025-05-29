@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const rememberMeCheckbox = document.querySelector('.remember-me');
     const emailInput = document.getElementById('Email');
     const passwordInput = document.getElementById('Senha');
-    const storageKey = 'rememberMeData';
+    const storageKey =localStorage.setItem("rememberMeData");
   
     
     const storedData = localStorage.getItem(storageKey);
