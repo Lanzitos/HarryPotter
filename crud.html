@@ -1,77 +1,101 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRUD</title>
+  <title>Usuários Cadastrados</title>
   <link rel="stylesheet" href="css/crud.css">
-  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
 <body>
   <div class="container">
-    <div class="header">
-      <span>Cadastro de Funcionários</span>
-      <button onclick="openModal()" id="new">Incluir</i></button>
+    <h1>Usuários Cadastrados</h1>
+    <div class="header-row">
+      <label>Nome</label>
+      <label>Email</label>
+      <label>Senha</label>
+      <label style="text-align: right;">Editar</label>
+      <label style="text-align: right;">Excluir</label>
     </div>
-
-    <div class="divTable">
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>senha</th>
-            <th class="acao">Editar</th>
-            <th class="acao">Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="modal-container">
-      <div class="modal">
-        <form>
-          <label for="m-nome">Nome</label>
-          <input id="m-nome" type="text" required />
-  
-          <label for="m-funcao"></label>
-          <input id="m-funcao" type="text" required />
-  
-          <label for="m-salario"></label>
-          <input id="m-salario" type="number" required />
-          <button id="btnSalvar">Salvar</button>
-        </form>
-      </div>
-    </div>
-
+    <div id="userList"></div>
   </div>
-  <script>function carregar() {
-      const lista = JSON.parse(localStorage.getItem('itens')) || [];
-      const ul = document.getElementById('lista');
-      ul.innerHTML = '';
 
-      lista.forEach((item, index) => {
-        const li = document.createElement('tr');
-       tr.innerHTML = `
-    <td>${item.nome}</td>
-    <td>${item.funcao}</td>
-    <td>R$ ${item.salario}</td>
-    <td class="acao">
-      <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
-    </td>
-    <td class="acao">
-      <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
-    </td>
-  `
-  tbody.appendChild(tr)
-      });
+  <div class="modal" id="editModal">
+    <div class="modal-content">
+      <h2>Editar Usuário</h2>
+      <input type="text" id="editNome" placeholder="Nome">
+      <input type="email" id="editEmail" placeholder="Email" disabled>
+      <input type="password" id="editSenha" placeholder="Senha">
+      <button onclick="saveChanges()">Salvar</button>
+    </div>
+  </div>
+
+  <script>
+    const userList = document.getElementById("userList");
+    const modal = document.getElementById("editModal");
+    let currentEmail = "";
+
+    function loadUsers() {
+      userList.innerHTML = "";
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        try {
+          const user = JSON.parse(localStorage.getItem(key));
+          if (user && user.Nome && user.Email && user.Senha) {
+            const row = document.createElement("div");
+            row.className = "user-row";
+            row.innerHTML = `
+              <div>${user.Nome}</div>
+              <div>${user.Email}</div>
+              <div>${user.Senha}</div>
+              <div class="buttons">
+                <button onclick="openEdit('${user.Email}')">✏️</button>
+                <button class="delete" onclick="deleteUser('${user.Email}')">🗑️</button>
+              </div>
+            `;
+            userList.appendChild(row);
+          }
+        } catch (e) {
+          continue;
+        }
+      }
     }
+
+    function openEdit(email) {
+      const user = JSON.parse(localStorage.getItem(email));
+      if (user) {
+        document.getElementById("editNome").value = user.Nome;
+        document.getElementById("editEmail").value = user.Email;
+        document.getElementById("editSenha").value = user.Senha;
+        currentEmail = email;
+        modal.style.display = "flex";
+      }
+    }
+
+    function saveChanges() {
+      const nome = document.getElementById("editNome").value;
+      const senha = document.getElementById("editSenha").value;
+      const email = currentEmail;
+
+      const updatedUser = {
+        Nome: nome,
+        Email: email,
+        Senha: senha
+      };
+
+      localStorage.setItem(email, JSON.stringify(updatedUser));
+      modal.style.display = "none";
+      loadUsers();
+    }
+
+    function deleteUser(email) {
+      localStorage.removeItem(email);
+      loadUsers();
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    loadUsers();
   </script>
 </body>
 </html>
