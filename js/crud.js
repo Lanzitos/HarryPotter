@@ -3,15 +3,13 @@ let filmes = document.querySelector('.card-container')
 
 function testeApi(filme){
     return `
-        <ol>
         <li>
-            <div class="card">
-                <img src="${filme.poster}" alt="Harry Potter e a Pedra Filosofal">
+            <div class="card"><p onclick="filmeFavorito()"><button class="estrela">&#9733;</button></p>
+                <img src="${filme.poster}" alt="">
                 <h2>${filme.title}</h2>
                 <p></p>
             </div>
         </li>
-        </ol>
     `
 }
 
