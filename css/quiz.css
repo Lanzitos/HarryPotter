@@ -9,7 +9,7 @@
 }
 
 body {
-  background: url('/img/planodefundo.jpg');
+  background: url('/img/background/planodefundo.jpg');
   background-size: cover;
   background-color: black;
   background-position: center;
@@ -22,7 +22,7 @@ body {
 .centro {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: normal;
   height: 100vh; /* ocupa a tela toda */
   
 }
@@ -39,7 +39,7 @@ body {
   width: 360px;
   height: 360px;
  display: grid;
- margin-top:50px;
+ margin-top:100px;
  z-index: 10;
 
 }
@@ -48,7 +48,7 @@ body {
   color:white;
   font-size:24px;
   font-family: 'Poiret One',cursive;
-  margin: 80px;
+  margin: 10px;
   text-shadow: 2px 2px 4px black;
   padding: 0px;
   align-items: center;
@@ -87,8 +87,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 160px;
-
+  margin-top: 60px;
   position: absolute;
   top: 50%;
   left: 50%;
