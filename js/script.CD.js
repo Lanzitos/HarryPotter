@@ -6,7 +6,7 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
     const confirmeSenha = document.getElementById("confirmeSenha").value;
   
     if (Senha !== confirmeSenha) {
-      //Exibir um p no html 
+      document.getElementById("senhaid").innerText = "As senhas não coincidem.";
       return;
     }
   
@@ -17,7 +17,7 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
     };
   
     localStorage.setItem(Email, JSON.stringify(user));
-    //javela nova com a cnfimação de que o usuario foi cadastrado 
+    window.location.href = "login.html";
      
   });
   
@@ -59,9 +59,4 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
     }
   }
   
-  const mobileNavbar = new MobileNavbar(
-    ".mobile-menu ",
-    ".nav-list",
-    ".nav-list li",
-  );
-  mobileNavbar.init();
+  
