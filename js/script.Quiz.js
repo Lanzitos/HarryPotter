@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
       casaResult.textContent = nomesCasas[resultado] || "Casa desconhecida";
     }
 
-    if (imagemCasa) {
-      imagemCasa.src = `/img/casas${resultado.toLowerCase()}.jpg`;
+   if (imagemCasa) {
+      imagemCasa.src = `/img/casas/${resultado}.jpg`;
       imagemCasa.alt = `Imagem da casa ${resultado}`;
     }
 
