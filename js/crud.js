@@ -4,7 +4,9 @@ let filmes = document.querySelector('.card-container')
 function testeApi(filme){
     return `
         <li>    
-        <div class="card"><p><button class="estrela" onclick="salvar()">&#9733;</button></p>
+        <div class="card" onmouseenter="expansao()">
+        <p><button class="estrela" onclick="salvar()">&#9733;
+        </button></p>
         <img src="${filme.poster}" alt="">
         <h2>${filme.title}</h2>
         </div>
@@ -23,15 +25,12 @@ function salvar(){
       estrelas.style.color = 'yellow'
     } else {
       estrelas.classList.add('favorito')
-      estrelas.style.color = 'black'
+      estrelas.style.color = 'white'
     }
   })
 }
 
 )}        
-
-
-
 
 
 fetch(url)
