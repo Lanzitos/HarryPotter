@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (imagemCasa) {
-      imagemCasa.src = `/img/${resultado.toLowerCase()}.jpg`;
+      imagemCasa.src = `/img/casas${resultado.toLowerCase()}.jpg`;
       imagemCasa.alt = `Imagem da casa ${resultado}`;
     }
 
