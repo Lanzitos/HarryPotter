@@ -1,14 +1,18 @@
 const url = 'https://potterhead-api.vercel.app/api/movies'
 let filmes = document.querySelector('.card-container')
+const titulosOriginais = Array.from(document.querySelectorAll('.titulo')).map(t => t.textContent);
 
-function testeApi(filme){
-    return `
+
+function testeApi(filme, i){
+  const titulo = document.querySelectorAll('.titulo')
+  document.querySelectorAll('.titulo').innerHTML
+  return `
         <li>    
         <div class="card">
         <p><button class="estrela" onclick="salvar()">&#9733;
         </button></p>
-        <img src="${filme.poster}" alt="${filme.title}">
-        <h2>${filme.title}</h2>
+        <img src="${filme.poster}" alt="">
+        <h2>${titulosOriginais[i]}</h2>
         </div>
         </li>
         `
@@ -17,7 +21,6 @@ function testeApi(filme){
 function salvar(){
     const estrelas = document.querySelectorAll('.estrela')
     estrelas.forEach(estrelas => {
-    
     estrelas.addEventListener('click', () => {
     const estaFavorito = estrelas.classList.contains('favorito');
     if (estaFavorito) {
@@ -28,13 +31,14 @@ function salvar(){
       estrelas.style.color = 'white'
     }
   })
-}
-
-)}        
+})}        
 
 fetch(url)
-.then((response) => response.json())
-.then(jsonresponse => filmes.innerHTML = jsonresponse.map(testeApi).join(""))
+.then(response => response.json())
+.then(jsonresponse => {
+  filmes.innerHTML = jsonresponse.map((filme, i) => testeApi(filme, i)).join("")
+  salvar()
+})
 .catch((error) => console.log(error))
 
 
