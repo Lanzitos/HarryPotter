@@ -5,6 +5,10 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
     const Senha = document.getElementById("Senha").value;
     const confirmeSenha = document.getElementById("confirmeSenha").value;
   
+    if (localStorage.getItem(Email)) {
+      document.getElementById("span").innerText = "E-mail já cadastrado.";
+      return;
+    }
     if (Senha !== confirmeSenha) {
       document.getElementById("senhaid").innerText = "As senhas não coincidem.";
       return;
