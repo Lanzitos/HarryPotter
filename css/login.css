@@ -95,50 +95,36 @@ form {
       }
 
 .input-container1 input {
-  position: relative;
-  border-radius: 40px;
-        width: 85%;
-        margin: 20px;
-        padding-left: 40px;
-        font-size: 15px
-        box-sizing border-box;
-        outline: none;
-        font-size: 20px;
-        padding: 10px 10px 10px 40px;
-      }
+    position: relative;
+    border-radius: 40px;
+    width: 85%;
+    margin: 20px;
+    padding-left: 40px;
+    font-size: 15px
+    box-sizing border-box;
+    outline: none;
+    font-size: 20px;
+    padding: 10px 10px 10px 40px;
+}
 
- .input-container2 input {
-  position: relative;
-  border-radius: 40px;
-        width: 85%;
-        margin: 20px;
-        padding-left: 40px;
-        font-size: 15px
-        box-sizing border-box;
-        outline: none;
-        font-size: 20px;
-        padding: 10px 10px 10px 40px;
-      }
-      .input-container1 input::placeholder {
-        color:#2f2d77c8;
-        font-family: "Bigelow Rules", serif;
-        font-size: 25px;
-      }
-      .input-container2 input::placeholder {
-        color:#2f2d77d5;
-        font-family: "Bigelow Rules", serif;
-        font-size: 25px;
-      }
+.input-container1 input::placeholder {
+    color:#2f2d77c8;
+    font-family: "Bigelow Rules", serif;
+    font-size: 25px;
+}
 
-      .input-container1 i {
-        color: #fff;
-      }
-      .input-container2 i {
-        color: #fff;
-      }
+  .input-container1 input::placeholder {
+    color:#2f2d77d5;
+    font-family: "Bigelow Rules", serif;
+    font-size: 25px;
+  }
 
-      .remember-me {
-        font-family: Poiret One, system-ui;
+  .input-container1 i {
+    color: #fff;
+  }
+
+.remember-me {
+      font-family: Poiret One, system-ui;
       font-size: 18px;
         display: flex;
         margin: 20px;
@@ -224,3 +210,16 @@ form {
       margin: 8px;
       transition: 0.3s;
     }
+@media (max-width: 768px){
+   .container{
+    max-width: 350px;
+    display: flex;
+  }
+  #loginForm{
+    max-width: 350px;
+  }
+  
+  .input-container1 i {
+    display: none;
+  }
+}
