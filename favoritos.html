@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/favoritos.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/favoritos.css">
     <link rel="icon" href="img/LOGO.png.png" type="image/png">
     <title>Favoritos</title>
 </head>
@@ -70,11 +70,11 @@
           <img src="${filme.poster}" alt="${filme.titulo}">
           <h2>${filme.serial} - ${filme.title}</h2>
         </div>
-      `;
-    }).join('');
+      `
+    }).join('')
 
-    container.innerHTML = cards;
-  });
+    container.innerHTML = cards
+  })
   
     </script>
     <script src="/js/script.js"></script>
