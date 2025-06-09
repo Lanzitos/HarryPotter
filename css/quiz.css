@@ -10,6 +10,7 @@
 
 body {
   background: url('/img/planodefundo.jpg');
+  background: url('../img/background/planodefundo.jpg');
   background-size: cover;
   background-color: black;
   background-position: center;
